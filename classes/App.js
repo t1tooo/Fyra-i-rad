@@ -3,9 +3,11 @@ import Board from './Board.js';
 import Player from './Player.js';
 
 export default class App {
-
   constructor() {
     this.board = new Board();
+  }
+
+  run() {
     this.start();
   }
 
@@ -19,8 +21,10 @@ export default class App {
       console.log('');
       let playAgain = prompt('Vill ni spela igen? (ja/nej)? ');
       if (playAgain !== 'ja') { break; }
+      this.createNewBoard();
     }
   }
+
 
   createPlayers() {
     console.clear();
@@ -47,8 +51,6 @@ export default class App {
   }
 
   whoHasWonOnGameOver() {
-    // the game is over, tell the player who has one or if we have a draw
-    console.clear();
     this.board.render();
     if (this.board.winner) {
       let winningPlayer = this.board.winner === 'X' ? this.playerX : this.playerO;
@@ -57,6 +59,10 @@ export default class App {
     else {
       console.log('Tyvärr det blev oavgjort...');
     }
+  }
+  
+  createNewBoard() {
+    this.board = new Board();
   }
 
 }

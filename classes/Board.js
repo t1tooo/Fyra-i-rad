@@ -1,16 +1,6 @@
 export default class Board {
 
   constructor() {
-    // A simple way of generating the board
-    // - but no so flexible
-    /*this.matrix = [
-        [' ', ' ', ' '],
-        [' ', ' ', ' '],
-        [' ', ' ', ' ']
-    ];*/
-    // A slighly more complex way of generating the board
-    // - more flexible since we can change
-    // how many rows and columns easily
     this.matrix = [...new Array(3)].map(row =>
       [...new Array(3)].map(column => ' ')
     );
